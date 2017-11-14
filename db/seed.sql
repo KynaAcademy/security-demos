@@ -1,9 +1,11 @@
 -- Create a users table --
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL,
-  email varchar,
-  password varchar
+  email VARCHAR,
+  password VARCHAR
 );
+
+TRUNCATE TABLE users;
 
 -- Create some dummy users --
 INSERT INTO users (email, password) VALUES ('samavati@verizon.net', '9fd8de5fc2a7c2c0d469b2fff1afde4e5def37ba');
@@ -106,3 +108,16 @@ INSERT INTO users (email, password) VALUES ('sravani@yahoo.ca', '99996b911567c83
 INSERT INTO users (email, password) VALUES ('msusa@live.com', '59033478180d07080d5e4f3baa0099996c364162');
 INSERT INTO users (email, password) VALUES ('squirrel@hotmail.com', '7ecfd8f97b4729c6ff0799b0b4d40f870083b461');
 INSERT INTO users (email, password) VALUES ('crobles@live.com', '6c616f7c2d2fde9018a09f06eaefcfc7582bc7ba');
+
+-- Create an accounts table --
+CREATE TABLE IF NOT EXISTS accounts (
+  id SERIAL,
+  user_id INT,
+  name VARCHAR,
+  home_address VARCHAR
+);
+
+TRUNCATE TABLE accounts;
+
+INSERT INTO accounts (user_id, name, home_address) VALUES (1, 'Jimmy Foo', '14, Lovely Lane 938094 Peaceful City');
+INSERT INTO accounts (user_id, name, home_address) VALUES (2, 'Jane Bar', '12, Private Lane 989879 Quiet Town');

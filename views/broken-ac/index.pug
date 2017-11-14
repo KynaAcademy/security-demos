@@ -1,0 +1,36 @@
+extends ../common/layout.pug
+
+block content
+  section.section
+    .container
+      h1.title.is-1 Broken Access Control Demo
+      p.subtitle.is-1 URL Param Hacking Example
+
+      .notification.is-primary
+        h1.title.is-2 Oh no!
+        p.subtitle.is-2 This login form redirects to our account, but the account id from the URL is not checked against the logged in user!
+
+      .content
+        h1 Gain Access
+        p So, we know we can sign in with:
+        p: strong  samavati@verizon.net
+        p: strong  george
+        p
+          | This redirects us to
+          code  /accounts/1
+          |  so let's see what's behind account number 2!
+
+      form(method="post" action="/broken-ac")
+        .field
+          label.label(for="email")
+          .control
+            input(type="email" name="email" placeholder="email" value="samavati@verizon.net")
+
+        .field
+          label.label(for="password")
+          .control
+            input(type="password" name="password" placeholder="password" value="george")
+
+        .field
+          .control
+            button.button.is-link Submit

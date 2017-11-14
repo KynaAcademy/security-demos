@@ -1,0 +1,18 @@
+extends ../common/layout.pug
+
+block content
+  section.section
+    .container
+      if account.id === 2
+        .notification.is-danger
+          h1.title.is-2  Wow...
+          p.subtitle.is-2 You gained access to someone else's account!
+      else
+        .notification.is-primary
+          h1.title.is-2  Now that we're here...
+          p.subtitle.is-2 Let's see what's behind account number 2!
+
+      p Account Page
+      h1.title.is-1= account.name
+      p.subtitle.is-1
+        pre= account.homeAddress
