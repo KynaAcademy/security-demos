@@ -6,6 +6,16 @@ block content
       h1.title.is-1 Injection Demo
       p.subtitle.is-1 SQL Injection Example
 
+      .notification.is-danger
+        h1.title.is-2 Yikes!
+        p.subtitle.is-2 This login form does escape SQL properly!
+
+      .content
+        h2 SQL Injection
+        p
+          |  Let's try to add some SQL injection to see if we can authenticate
+          |  without knowing a password!
+
       form(method="post" action="/injection")
         .field
           label.label(for="email")
