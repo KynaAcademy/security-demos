@@ -121,3 +121,11 @@ TRUNCATE TABLE accounts;
 
 INSERT INTO accounts (user_id, name, home_address) VALUES (1, 'Jimmy Foo', '14, Lovely Lane 938094 Peaceful City');
 INSERT INTO accounts (user_id, name, home_address) VALUES (2, 'Jane Bar', '12, Private Lane 989879 Quiet Town');
+INSERT INTO accounts (user_id, name, home_address) VALUES (3, 'Dick Jameson', '1145, Private Lane 989879 Quiet Town');
+INSERT INTO accounts (user_id, name, home_address) VALUES (4, 'Kurt Brunne', '3587, Private Lane 989879 Quiet Town');
+INSERT INTO accounts (user_id, name, home_address) VALUES (5, 'Max Virgen', '3498, Private Lane 989879 Quiet Town');
+INSERT INTO accounts (user_id, name, home_address) VALUES (6, 'Jan James', '23, Private Lane 989879 Quiet Town');
+INSERT INTO accounts (user_id, name, home_address) VALUES (7, 'James Dylan', '3487, Private Lane 989879 Quiet Town');
+INSERT INTO accounts (user_id, name, home_address) VALUES (8, 'Summer Johnson', '3948, Private Lane 989879 Quiet Town');
+INSERT INTO accounts (user_id, name, home_address) VALUES (9, 'Spring Austen', '1209, Private Lane 989879 Quiet Town');
+INSERT INTO accounts (user_id, name, home_address) VALUES (10, 'Freddy Johnson', '5867, Private Lane 989879 Quiet Town');
