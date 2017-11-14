@@ -6,8 +6,16 @@ html
     title Security Demos - #{title}
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css")
+
   body
+    nav.navbar(role="navigation" aria-label="main navigation")
+      .navbar-brand
+        a.navbar-item(href="/")
+          img(src="https://cdn-images-1.medium.com/letterbox/396/72/50/50/1*boTuC8H5h5283x_merRMAA.png?source=logoAvatar-77feeefe0a8e---3b974d4d7c63" alt="Codaisseur: Security Demos" height="28")
+        a.navbar-item(href="/")  All Security Demos
+
     block content
+
     footer.footer
       .container
         .content.has-text-centered

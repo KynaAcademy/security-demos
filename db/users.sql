@@ -1,11 +1,3 @@
--- Create a users table --
-CREATE TABLE IF NOT EXISTS users (
-  id SERIAL,
-  email varchar,
-  password varchar
-);
-
--- Create some dummy users --
 INSERT INTO users (email, password) VALUES ('samavati@verizon.net', '9fd8de5fc2a7c2c0d469b2fff1afde4e5def37ba');
 INSERT INTO users (email, password) VALUES ('jginspace@sbcglobal.net', 'd8cd10b920dcbdb5163ca0185e402357bc27c265');
 INSERT INTO users (email, password) VALUES ('hoangle@verizon.net', '7ea35d812706d9213868749011af1ed4fa2f6aa0');

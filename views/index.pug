@@ -1,0 +1,22 @@
+extends ./common/layout.pug
+
+block content
+  section.section
+    .container
+      h1.title.is-1 Security Demos
+      p.subtitle.is-1 Don't try this at home
+
+      .columns
+        .column
+          .notification.is-link
+            h2.title Injection
+            p.subtitle SQL Injection Example
+            p
+              a.button.is-link.is-inverted.is-outlined(href="/injection") Try out
+
+        .column
+          .notification.is-info
+            h2.title Broken Authentication
+            p.subtitle Unsalted Hash Password Example
+            p
+              a.button.is-info.is-inverted.is-outlined(href="/broken-auth") Try out

@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const hashPass = require('../utils/hashpass')
+const email = require('../utils/randomemail')
+
+const createUser = async (i) => {
+  console.log(`INSERT INTO users (email, password) VALUES ('${email(i)}', '${await hashPass()}');`)
+}
+
+for (var i = 0; i < 100; i++) {
+  createUser(i)
+}

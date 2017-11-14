@@ -5,6 +5,8 @@ const DATABASE_URL = process.env.DATABASE_URL ||
 
 const pg = new Pool({ connectionString: DATABASE_URL, debug: true })
 
+module.exports.pg = pg
+
 module.exports.connect = async (ctx, next) => {
   ctx.state.psql = await pg.connect()
   console.log('Connected to pg')
