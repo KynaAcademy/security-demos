@@ -3,7 +3,7 @@ const parseBody = require('koa-body')
 const hashPass = require('../utils/hashpass')
 
 router.get('/injection', async (ctx, next) => {
-  ctx.render('injection/index')
+  ctx.render('injection/index', { title: 'Injection Example' })
   await next()
 })
 
@@ -29,7 +29,7 @@ router.post('/injection', parseBody(), async (ctx, next) => {
 
   if (!error && !authorized) error = 'No user matches query!'
 
-  ctx.render('injection/result', { authorized, error, query })
+  ctx.render('injection/result', { authorized, error, query, title: 'Injection Result' })
 
   await next()
 })

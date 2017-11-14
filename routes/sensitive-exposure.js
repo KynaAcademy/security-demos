@@ -7,7 +7,7 @@ router.get('/sensitive-exposure', async (ctx, next) => {
     text: 'SELECT id, email FROM users'
   })
   const users = results.rows.map(u => ({ id: u[0], email: u[1] }))
-  ctx.render('sensitive-exposure/index', { users })
+  ctx.render('sensitive-exposure/index', { users, title: 'Sensitive Exposure Example' })
   await next()
 })
 
@@ -26,11 +26,11 @@ router.get('/sensitive-exposure/:id', parseBody(), async (ctx, next) => {
 
   const user = results.rows.map(u => ({ id: u[0], email: u[1], password: u[2] }))[0]
 
-  if (!user) return ctx.render('not-found', { message: `User with id: ${id} not found!`})
+  if (!user) return ctx.render('not-found', { message: `User with id: ${id} not found!`, title: '404 Not Found' })
 
   console.log(user)
 
-  ctx.render('sensitive-exposure/user', { user })
+  ctx.render('sensitive-exposure/user', { user, title: 'Sensitive Exposure - User Details' })
   await next()
 })
 

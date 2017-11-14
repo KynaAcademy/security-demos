@@ -4,7 +4,7 @@ const hashPass = require('../utils/hashpass')
 
 router.get('/broken-ac', async (ctx, next) => {
   const { flash } = ctx.query
-  ctx.render('broken-ac/index', { flash })
+  ctx.render('broken-ac/index', { flash, title: 'Broken Access Controll' })
   await next()
 })
 
@@ -54,9 +54,9 @@ router.get('/accounts/:id', parseBody(), async (ctx, next) => {
 
   const account = results.rows.map(u => ({ id: u[0], userId: u[1], name: u[2], homeAddress: u[3] }))[0]
 
-  if (!account) return ctx.render('not-found', { message: `Account with id: ${id} not found!`})
+  if (!account) return ctx.render('not-found', { message: `Account with id: ${id} not found!`, title: '404 Not Found' })
 
-  ctx.render('broken-ac/account', { account })
+  ctx.render('broken-ac/account', { account, title: account.name })
   await next()
 })
 

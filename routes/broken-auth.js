@@ -3,7 +3,7 @@ const parseBody = require('koa-body')
 const hashPass = require('../utils/hashpass')
 
 router.get('/broken-auth', async (ctx, next) => {
-  ctx.render('broken-auth/index')
+  ctx.render('broken-auth/index', { title: 'Broken Authentication Example' })
   await next()
 })
 
@@ -21,7 +21,7 @@ router.post('/broken-auth', parseBody(), async (ctx, next) => {
   const result = await ctx.state.psql.query(query, [ email, passwd ])
   authorized = result.rowCount > 0
 
-  ctx.render('broken-auth/result', { authorized })
+  ctx.render('broken-auth/result', { authorized, title: 'Authentication Result' })
 
   await next()
 })

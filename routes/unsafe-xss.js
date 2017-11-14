@@ -5,7 +5,7 @@ const hashPass = require('../utils/hashpass')
 router.get('/unsafe-xss', async (ctx, next) => {
   const { flash } = ctx.query
   console.log(flash)
-  ctx.render('unsafe-xss/index', { flash })
+  ctx.render('unsafe-xss/index', { flash, title: 'XSS Example' })
   await next()
 })
 
