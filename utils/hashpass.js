@@ -1,9 +1,10 @@
 const crypto = require('crypto')
 const randomPass = require('./randompass')
 
-module.exports = async () => {
+module.exports = async (passwd) => {
   const shasum = crypto.createHash('sha1')
   const pass = await randomPass()
-  shasum.update(pass)
+  passwd = passwd || pass
+  shasum.update(passwd)
   return shasum.digest('hex')
 }

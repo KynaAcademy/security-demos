@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+const Browser = require('zombie')
+const randomPass = require('../utils/randompass')
+
+const browser = new Browser()
+
+const tryLogin = async (url, email, password) => {
+  const randomPassword = await randomPass()
+  password = password || randomPassword
+
+  browser.visit(url, () => {
+    browser.fill('input[name=email]', email)
+    browser.fill('input[name=password]', password)
+
+    browser.document.forms[0].submit()
+
+    browser.wait().then(() => {
+      try {
+        browser.assert.text('h2', 'Congrats! You guessed it!')
+        console.log('GOTCHA! Password is: ', password)
+      } catch (error) {
+        console.error('NOPE!', password, 'is not the password. Let\'s try that again.')
+      }
+    })
+  })
+}
+
+
+const args = process.argv.slice(2)
+const url = args.shift() || ''
+
+tryLogin(url, args[0], args[1])
+  .catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })

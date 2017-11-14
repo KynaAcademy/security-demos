@@ -1,35 +1,29 @@
 const router = require('koa-router')()
 const parseBody = require('koa-body')
+const hashPass = require('../utils/hashpass')
 
 router.get('/broken-auth', async (ctx, next) => {
-  const results = await ctx.state.psql.query({
-    rowMode: 'array',
-    text: 'SELECT id, email FROM users'
-  })
-  const users = results.rows.map(u => ({ id: u[0], email: u[1] }))
-  ctx.render('broken-auth/index', { users })
+  ctx.render('broken-auth/index')
+  await next()
 })
 
-router.get('/broken-auth/:id', parseBody(), async (ctx, next) => {
-  const { id } = ctx.params
+router.post('/broken-auth', parseBody(), async (ctx, next) => {
+  let authorized = false
+  const { email, password } = ctx.request.body
 
   const query = `SELECT *
     FROM users
-    WHERE id = '${id}'
-    LIMIT 1`
+    WHERE email = $1::text
+    AND password = $2::text`
 
-  const results = await ctx.state.psql.query({
-    rowMode: 'array',
-    text: query
-  })
+  const passwd = await hashPass(password)
 
-  const user = results.rows.map(u => ({ id: u[0], email: u[1], password: u[2] }))[0]
+  const result = await ctx.state.psql.query(query, [ email, passwd ])
+  authorized = result.rowCount > 0
 
-  if (!user) return ctx.render('not-found', { message: `User with id: ${id} not found!`})
+  ctx.render('broken-auth/result', { authorized })
 
-  console.log(user)
-
-  ctx.render('broken-auth/user', { user })
+  await next()
 })
 
 module.exports = router

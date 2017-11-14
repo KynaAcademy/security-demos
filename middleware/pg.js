@@ -16,5 +16,5 @@ module.exports.connect = async (ctx, next) => {
 module.exports.release = async (ctx, next) => {
   ctx.state.psql && ctx.state.psql.release()
   console.log('Released pg connection')
-  await next()
+  next && await next()
 }

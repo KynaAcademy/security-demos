@@ -10,6 +10,7 @@ setupViews(app)
 
 const overview = require('./routes/overview')
 const brokenAuth = require('./routes/broken-auth')
+const sensitiveExp = require('./routes/sensitive-exposure')
 const injection = require('./routes/injection')
 
 app.use(errors)
@@ -18,9 +19,11 @@ app.use(pg.connect)
 
 app.use(overview.routes())
 app.use(brokenAuth.routes())
+app.use(sensitiveExp.routes())
 app.use(injection.routes())
 app.use(overview.allowedMethods())
 app.use(brokenAuth.allowedMethods())
+app.use(sensitiveExp.allowedMethods())
 app.use(injection.allowedMethods())
 
 app.use(pg.release)

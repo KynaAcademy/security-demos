@@ -1,0 +1,44 @@
+extends ../common/layout.pug
+
+mixin capitalize(string)
+  - var words = string.split(' ').map((w) => `${w.substring(0,1).toUpperCase()}${w.substring(1)}`)
+  span= words.join(' ')
+
+block content
+  section.section
+    .container
+      h1.title.is-1 Sensitive Exposure Demo
+      p.subtitle.is-1 Unsafe Password Hashes Demo
+
+  section.section
+    .container
+      .notification.is-warning
+        h1.title.is-2 Whooops!
+        p.subtitle.is-2 You accidentally stumbled upon some websites' users table!
+
+      .content
+        p
+          |  Although the passwords are hashed, you decide to have a go at cracking
+          |  them anyways. If the hashes are not salted, you can find the plaintext
+          |  passwords by using a rainbow table that contains all possible hashes
+          |  for that string length and character set. If you don't have such a
+          |  table (takes around 50 hours to generate), you can use a tool like
+          a(href="https://crackstation.net/" target="_blank")  CrackStation
+          |  to decode them.
+        p: strong Click the users below to reveal their password hashes!
+        p: em
+          | Fun fact: all passwords are also in the
+          a(href="https://github.com/danielmiessler/SecLists/tree/master/Passwords")
+            |  most used passwords list
+          | !
+
+      .columns.is-multiline.is-mobile
+        each user in users
+          .column(style="min-width: 350px")
+            .notification
+              h2.title
+                a(href=`/sensitive-exposure/${user.id}`)
+                  +capitalize(user.email.split('@')[0])
+              p.subtitle
+                | Company:
+                +capitalize(user.email.split('@')[1].split('.')[0])

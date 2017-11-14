@@ -5,7 +5,6 @@
   "license": "MIT",
   "scripts": {
     "start": "node .",
-    "predev": "bin/create-seeds",
     "dev": "nodemon .",
     "randompass": "node utils/randompass.js"
   },
@@ -16,7 +15,8 @@
     "koa-router": "^7.3.0",
     "pg": "^7.4.0",
     "request": "^2.83.0",
-    "request-promise-native": "^1.0.5"
+    "request-promise-native": "^1.0.5",
+    "zombie": "^5.0.7"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

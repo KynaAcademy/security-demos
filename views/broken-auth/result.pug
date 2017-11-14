@@ -1,0 +1,20 @@
+extends ../common/layout.pug
+
+block content
+  section.section
+    .container
+      h1.title.is-1 Broken Authentication Demo
+      p.subtitle.is-1 Brute Forceable Authentication Example
+
+      if authorized
+        .notification.is-success
+          h2.title Congrats! You guessed it!
+
+      else
+        .notification.is-danger
+          h2.title Oops! That's not the right password!
+
+      .field
+        .control
+          a.button.is-light(href="/broken-auth") Try Again
+          a.button.is-text(href="/") Try Another

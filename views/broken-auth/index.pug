@@ -1,44 +1,37 @@
 extends ../common/layout.pug
 
-mixin capitalize(string)
-  - var words = string.split(' ').map((w) => `${w.substring(0,1).toUpperCase()}${w.substring(1)}`)
-  span= words.join(' ')
-
 block content
   section.section
     .container
-      h1.title.is-1 Broken Auth Demo
-      p.subtitle.is-1 Unsafe Password Hashes Demo
+      h1.title.is-1 Broken Authentication Demo
+      p.subtitle.is-1 Brute Forceable Authentication Example
 
-  section.section
-    .container
       .notification.is-warning
-        h1.title.is-2 Whooops!
-        p.subtitle.is-2 You accidentally stumbled upon some websites' users table!
+        h1.title.is-2 Uh oh!
+        p.subtitle.is-2 This login form does not keep track of failed login attempts!
 
       .content
+        h1 Let's See...
         p
-          |  Although the passwords are hashed, you decide to have a go at cracking
-          |  them anyways. If the hashes are not salted, you can find the plaintext
-          |  passwords by using a rainbow table that contains all possible hashes
-          |  for that string length and character set. If you don't have such a
-          |  table (takes around 50 hours to generate), you can use a tool like
-          a(href="https://crackstation.net/" target="_blank")  CrackStation
-          |  to decode them.
-        p: strong Click the users below to reveal their password hashes!
-        p: em
-          | Fun fact: all passwords are also in the
-          a(href="https://github.com/danielmiessler/SecLists/tree/master/Passwords")
-            |  most used passwords list
-          | !
+          | We found an email address,
+          strong  petersko@sbcglobal.net
+          | , and we are going to use
+          strong  BRUTE FORCE
+          |  to get into this app using that email address and the list of
+          a(href="https://github.com/danielmiessler/SecLists/tree/master/Passwords" target="_blank")
+            |  most used passwords!
 
-      .columns.is-multiline.is-mobile
-        each user in users
-          .column(style="min-width: 350px")
-            .notification
-              h2.title
-                a(href=`/broken-auth/${user.id}`)
-                  +capitalize(user.email.split('@')[0])
-              p.subtitle
-                | Company:
-                +capitalize(user.email.split('@')[1].split('.')[0])
+      form(method="post" action="/broken-auth")
+        .field
+          label.label(for="email")
+          .control
+            input(type="email" name="email" placeholder="email")
+
+        .field
+          label.label(for="password")
+          .control
+            input(type="password" name="password" placeholder="password")
+
+        .field
+          .control
+            button.button.is-link Submit

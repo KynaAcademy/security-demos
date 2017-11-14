@@ -6,17 +6,24 @@ block content
       h1.title.is-1 Security Demos
       p.subtitle.is-1 Don't try this at home
 
-      .columns
-        .column
-          .notification.is-link
+      .columns.is-multiline.is-mobile
+        .column(style="min-width: 350px")
+          .notification.is-danger
             h2.title Injection
             p.subtitle SQL Injection Example
             p
-              a.button.is-link.is-inverted.is-outlined(href="/injection") Try out
+              a.button.is-danger.is-inverted.is-outlined(href="/injection") Try out
 
-        .column
-          .notification.is-info
+        .column(style="min-width: 350px")
+          .notification.is-primary
             h2.title Broken Authentication
+            p.subtitle Brute Force Password Example
+            p
+              a.button.is-primary.is-inverted.is-outlined(href="/broken-auth") Try out
+
+        .column(style="min-width: 350px")
+          .notification.is-warning
+            h2.title Sensitive Exposure
             p.subtitle Unsalted Hash Password Example
             p
-              a.button.is-info.is-inverted.is-outlined(href="/broken-auth") Try out
+              a.button.is-warning.is-inverted.is-outlined(href="/sensitive-exposure") Try out
