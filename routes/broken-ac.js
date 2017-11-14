@@ -3,7 +3,8 @@ const parseBody = require('koa-body')
 const hashPass = require('../utils/hashpass')
 
 router.get('/broken-ac', async (ctx, next) => {
-  ctx.render('broken-ac/index')
+  const { flash } = ctx.query
+  ctx.render('broken-ac/index', { flash })
   await next()
 })
 

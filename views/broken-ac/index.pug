@@ -6,9 +6,14 @@ block content
       h1.title.is-1 Broken Access Control Demo
       p.subtitle.is-1 URL Param Hacking Example
 
-      .notification.is-primary
-        h1.title.is-2 Oh no!
-        p.subtitle.is-2 This login form redirects to our account, but the account id from the URL is not checked against the logged in user!
+      if flash
+        .notification.is-danger
+          h1.title.is-2 Wrong Credentials!
+          p.subtitle.is-2= flash
+      else
+        .notification.is-primary
+          h1.title.is-2 Oh no!
+          p.subtitle.is-2 This login form redirects to our account, but the account id from the URL is not checked against the logged in user!
 
       .content
         h1 Gain Access
