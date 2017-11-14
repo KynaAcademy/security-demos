@@ -13,6 +13,7 @@ const brokenAuth = require('./routes/broken-auth')
 const sensitiveExp = require('./routes/sensitive-exposure')
 const brokenAc = require('./routes/broken-ac')
 const injection = require('./routes/injection')
+const unsafeXSS = require('./routes/unsafe-xss')
 
 app.use(errors)
 
@@ -23,11 +24,13 @@ app.use(brokenAuth.routes())
 app.use(sensitiveExp.routes())
 app.use(brokenAc.routes())
 app.use(injection.routes())
+app.use(unsafeXSS.routes())
 app.use(overview.allowedMethods())
 app.use(brokenAuth.allowedMethods())
 app.use(sensitiveExp.allowedMethods())
 app.use(brokenAc.allowedMethods())
 app.use(injection.allowedMethods())
+app.use(unsafeXSS.allowedMethods())
 
 app.use(pg.release)
 
