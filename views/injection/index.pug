@@ -1,0 +1,22 @@
+extends ../common/layout.pug
+
+block content
+  section.section
+    .container
+      h1.title Injection Demo
+      p.subtitle SQL Injection Example
+
+      form(method="post" action="/")
+        .field
+          label.label(for="email")
+          .control
+            input(type="email" name="email" placeholder="email")
+
+        .field
+          label.label(for="password")
+          .control
+            input(type="password" name="password" placeholder="password")
+
+        .field
+          .control
+            button.button.is-link Submit

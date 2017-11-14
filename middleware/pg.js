@@ -3,7 +3,7 @@ const { Pool } = require('pg')
 const DATABASE_URL = process.env.DATABASE_URL ||
   'postgresql://localhost:5432/security-demos'
 
-const pg = new Pool({ connectionString: DATABASE_URL })
+const pg = new Pool({ connectionString: DATABASE_URL, debug: true })
 
 module.exports.connect = async (ctx, next) => {
   ctx.state.psql = await pg.connect()

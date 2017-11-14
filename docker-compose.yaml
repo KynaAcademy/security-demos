@@ -8,7 +8,7 @@ services:
       - '/bin/bash'
       - '-c'
     command:
-      - 'yarn start injection'
+      - 'yarn run dev injection'
     environment:
       - NODE_ENV=development
       - PORT=3000

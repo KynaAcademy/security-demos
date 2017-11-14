@@ -1,0 +1,31 @@
+extends ../common/layout.pug
+
+block content
+  section.section
+    .container
+      h1.title Injection Demo
+      p.subtitle SQL Injection Example
+
+      if authorized
+        .notification.is-success
+          h2.title Congrats! You successfully authorized against the database!
+
+          p: strong The query was:
+          pre
+            code=query
+
+      else
+        .notification.is-danger
+          h2.title Oops! Unable to authorize you against the database!
+
+          p: strong The query was:
+          pre
+            code=query
+
+          p: strong The error was:
+          pre
+            code=error
+
+      .field
+        .control
+          a.button.is-light(href="/") Try Again
