@@ -20,11 +20,22 @@ should should not be used in production environments!**
 
 This project can be run locally in Docker from the provided `docker-compose.yaml`.
 
-Clone the repository, then run:
+Clone the repository, then run the app container and install the
+node modules:
+
+```bash
+$ docker-compose run app /bin/bash
+$ yarn install
+$ exit
+```
+
+Then start the app and the postgres container:
 
 ```bash
 $ docker-compose up
 ```
+
+Then open http://localhost:3000 and start crackin'!
 
 ## Troubleshooting
 
