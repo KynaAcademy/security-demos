@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+const hash = require('../utils/hashpass')
+
+hash(process.argv[2])
+  .then(console.log)
