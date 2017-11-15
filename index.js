@@ -14,6 +14,7 @@ const sensitiveExp = require('./routes/sensitive-exposure')
 const brokenAc = require('./routes/broken-ac')
 const injection = require('./routes/injection')
 const unsafeXSS = require('./routes/unsafe-xss')
+const hacker = require('./routes/hacker')
 
 app.use(errors)
 
@@ -25,12 +26,14 @@ app.use(sensitiveExp.routes())
 app.use(brokenAc.routes())
 app.use(injection.routes())
 app.use(unsafeXSS.routes())
+app.use(hacker.routes())
 app.use(overview.allowedMethods())
 app.use(brokenAuth.allowedMethods())
 app.use(sensitiveExp.allowedMethods())
 app.use(brokenAc.allowedMethods())
 app.use(injection.allowedMethods())
 app.use(unsafeXSS.allowedMethods())
+app.use(hacker.allowedMethods())
 
 app.use(pg.release)
 
