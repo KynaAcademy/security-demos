@@ -1,6 +1,6 @@
 version: '3'
 services:
-  injection:
+  app:
     build: .
     volumes:
       - $PWD:/app
@@ -8,13 +8,13 @@ services:
       - '/bin/bash'
       - '-c'
     command:
-      - 'yarn run dev injection'
+      - 'yarn run dev'
     environment:
       - NODE_ENV=development
       - PORT=3000
-      - DATABASE_URL=postgres://securitydemos:pass@postgres:5432/securitydemos
+      - DATABASE_URL=postgres://securitylabs:pass@postgres:5432/securitylabs
     ports:
-      - "3030:3000"
+      - "3000:3000"
     depends_on:
       - postgres
 
@@ -23,5 +23,5 @@ services:
     volumes:
       - ./db/seed.sql:/docker-entrypoint-initdb.d/seed.sql
     environment:
-      - POSTGRES_USER=securitydemos
+      - POSTGRES_USER=securitylabs
       - POSTGRES_PASSWORD=pass
