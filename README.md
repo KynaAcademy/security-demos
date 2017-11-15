@@ -1,5 +1,7 @@
 # Security Labs
 
+[![Docker Repository on Quay](https://quay.io/repository/codaisseur/security-demos/status "Docker Repository on Quay")](https://quay.io/repository/codaisseur/security-demos)
+
 This project demonstrates various security concerns with web applications, based
 on the **OWASP Top 10 2017 - The Ten Most Critical Web Application Security
 Risks**.
