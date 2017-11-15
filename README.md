@@ -10,6 +10,17 @@ Risks**.
 
 **_Screenshot_**
 
+## Features
+
+_**Do NOT try this at home! :)**_
+
+  * **(SQL) Injection Lab** - Play and learn about SQL injection
+  * **Broken Authentication Lab** - Brute force authentication [using 100 of the most used passwords](/bin/brute-force-entry)
+  * **Sensitive Exposure Lab** - Learn why you need to salt hashes by using rainbow tables / sites like Crack Station to lookup plain text values for unsalted hashes.
+  * **Broken Access Control Lab** - See what happens if you forget to authorize users properly and users start guessing URL parameters
+  * **Cross Site Scripting (XSS) Lab** - Experience how a JWT Token can be stolen if you allow arbitrary JavaScript to be run on a page
+  * Convenient scripts to brute force entry, create seeds, and create `SHA1` hashes
+
 ## Disclaimer
 
 This project is a demo project for the Codaisseur Advanced Class on Securing
