@@ -1,5 +1,6 @@
 const router = require('koa-router')()
 const parseBody = require('koa-body')
+const hashPass = require('../utils/hashpass')
 
 router.get('/injection', async (ctx, next) => {
   ctx.render('injection/index', { title: 'Injection Example' })
@@ -8,11 +9,9 @@ router.get('/injection', async (ctx, next) => {
 
 router.post('/injection', parseBody(), async (ctx, next) => {
   const { email, password } = ctx.request.body
+  const passwd = await hashPass(password)
 
-  const query = `SELECT *
-    FROM users
-    WHERE email = '${email}'
-    AND password = '${password}'`
+  const query = `SELECT * FROM users WHERE email = '${email}' AND password = '${passwd}'`
 
   let authorized = false
   let error = null
