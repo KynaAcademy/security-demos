@@ -1,4 +1,4 @@
-FROM node:wheezy
+FROM node:jessie
 
 WORKDIR /app
 
