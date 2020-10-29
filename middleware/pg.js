@@ -1,4 +1,5 @@
 const { Pool } = require('pg')
+const logger = require("../utils/logger");
 
 const DATABASE_URL = process.env.DATABASE_URL ||
   'postgresql://localhost:5432/security-demos'
@@ -18,13 +19,18 @@ const pg = process.env.CLOUD_SQL_CONNECTION_NAME ? cloudsql_pool() : new Pool({ 
 module.exports.pg = pg
 
 module.exports.connect = async (ctx, next) => {
-  ctx.state.psql = await pg.connect()
-  console.log('Connected to pg')
+  try {
+    ctx.state.psql = await pg.connect()
+    logger.info('Connected to pg')
+  } catch (err) {
+    logger.error(err)
+    await next(err)
+  }
   await next()
 }
 
 module.exports.release = async (ctx, next) => {
   ctx.state.psql && ctx.state.psql.release()
-  console.log('Released pg connection')
+  logger.info('Released pg connection')
   next && await next()
 }

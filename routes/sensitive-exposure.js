@@ -28,8 +28,6 @@ router.get('/sensitive-exposure/:id', parseBody(), async (ctx, next) => {
 
   if (!user) return ctx.render('not-found', { message: `User with id: ${id} not found!`, title: '404 Not Found' })
 
-  console.log(user)
-
   ctx.render('sensitive-exposure/user', { user, title: 'Sensitive Exposure - User Details' })
   await next()
 })
