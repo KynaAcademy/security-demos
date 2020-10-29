@@ -3,3 +3,6 @@
 README.md
 docker-compose.yaml
 node_modules
+db/
+10_million_password_list_top_100.txt
+bin/
