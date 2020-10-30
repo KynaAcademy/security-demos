@@ -15,6 +15,13 @@ block content
             code=query
 
       else
+        .notification
+          p
+            | HINT: You can try playing with
+            = " "
+            a(href="http://sqlfiddle.com/#!17/b9d99" target="_blank" rel="noopener noreferrer") this SQL query
+            |  to get this to work faster.
+
         .notification.is-danger
           h2.title Oops! Unable to authorize you against the database!
 

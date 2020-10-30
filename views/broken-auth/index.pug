@@ -6,7 +6,7 @@ block content
       h1.title.is-1 Broken Authentication Demo
       p.subtitle.is-1 Brute Forceable Authentication Example
 
-      .notification.is-warning
+      .notification.is-primary
         h1.title.is-2 Uh oh!
         p.subtitle.is-2 This login form does not keep track of failed login attempts!
 
@@ -15,23 +15,32 @@ block content
         p
           | We found an email address,
           strong  petersko@sbcglobal.net
-          | , and we are going to use
+          | , and we can use
           strong  BRUTE FORCE
           |  to get into this app using that email address and the list of
           a(href="https://github.com/danielmiessler/SecLists/tree/master/Passwords" target="_blank")
             |  most used passwords!
 
+        p 1) Fill in the email address and then 2) try the passwords from the list.
+
+        .notification
+          p
+            | Done? Feeling adventurous? You can try to use a commonly used hacking tool called
+            = " "
+            a(href="https://portswigger.net/support/using-burp-to-brute-force-a-login-page" target="_blank" rel="noopener noreferrer") Burp
+            |  to hack this form.
+
       form(method="post" action="/broken-auth")
         .field
-          label.label(for="email")
+          label.label(for="email") Email
           .control
             input(type="email" name="email" placeholder="email")
 
         .field
-          label.label(for="password")
+          label.label(for="password") Password
           .control
             input(type="password" name="password" placeholder="password")
 
         .field
           .control
-            button.button.is-link Submit
+            button.button.is-primary Submit

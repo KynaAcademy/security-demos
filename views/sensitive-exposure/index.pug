@@ -40,5 +40,6 @@ block content
                 a(href=`/sensitive-exposure/${user.id}`)
                   +capitalize(user.email.split('@')[0])
               p.subtitle
-                | Company:
-                +capitalize(user.email.split('@')[1].split('.')[0])
+                | Domain:
+                = " "
+                +capitalize(user.email.split('@')[1])

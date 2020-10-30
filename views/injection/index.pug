@@ -16,17 +16,20 @@ block content
           |  Let's try to add some SQL injection to see if we can authenticate
           |  without knowing a password!
 
+      .notification
+        p HINT: Start by adding an email address and a simple password and see what happens.
+
       form(method="post" action="/injection")
         .field
-          label.label(for="email")
+          label.label(for="email") Email address
           .control
             input(type="input" name="email" placeholder="email")
 
         .field
-          label.label(for="password")
+          label.label(for="password") Password
           .control
             input(type="password" name="password" placeholder="password")
 
         .field
           .control
-            button.button.is-link Submit
+            button.button.is-danger Submit

@@ -12,7 +12,15 @@ block content
           h1.title.is-2  Now that we're here...
           p.subtitle.is-2 Let's see what's behind account number 2!
 
-      p Account Page
-      h1.title.is-1= account.name
-      p.subtitle.is-1
-        pre= account.homeAddress
+      .content
+        p Account Page
+        h1.title.is-1= account.name
+        p.subtitle.is-1
+          pre= account.homeAddress
+
+      .notification.is-warning
+          p
+            | Done? Feeling adventurous? You can try to use a commonly used hacking tool called
+            = " "
+            a(href="https://portswigger.net/burp/communitydownload" target="_blank" rel="noopener noreferrer") Burp
+            |  to do URL hacking super fast and get ALL the accounts!

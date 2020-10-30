@@ -25,6 +25,13 @@ block content
           code  /accounts/1
           |  so let's see what's behind account number 2!
 
+      .notification
+          p
+            | Done? Feeling adventurous? You can try to use a commonly used hacking tool called
+            = " "
+            a(href="https://portswigger.net/burp/communitydownload" target="_blank" rel="noopener noreferrer") Burp
+            |  to do URL hacking super fast and get ALL the accounts!
+
       form(method="post" action="/broken-ac")
         .field
           label.label(for="email")
