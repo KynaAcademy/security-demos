@@ -8,6 +8,13 @@ block content
 
       .columns.is-multiline.is-mobile
         .column(style="min-width: 350px")
+          .notification.is-link
+            h2.title Broken Access Control
+            p.subtitle URL Parameter Hacking Example
+            p
+              a.button.is-link.is-inverted.is-outlined(href="/broken-ac") Try out
+
+        .column(style="min-width: 350px")
           .notification.is-primary
             h2.title Broken Authentication
             p.subtitle Brute Force Password Example
@@ -16,10 +23,10 @@ block content
 
         .column(style="min-width: 350px")
           .notification.is-warning
-            h2.title Sensitive Exposure
+            h2.title Cryptographic Failures
             p.subtitle Unsalted Hash Password Example
             p
-              a.button.is-warning.is-inverted.is-outlined(href="/sensitive-exposure") Try out
+              a.button.is-warning.is-inverted.is-outlined(href="/cryptographic-failures") Try out
 
         .column(style="min-width: 350px")
           .notification.is-danger
@@ -27,13 +34,6 @@ block content
             p.subtitle SQL Injection Example
             p
               a.button.is-danger.is-inverted.is-outlined(href="/injection") Try out
-
-        .column(style="min-width: 350px")
-          .notification.is-link
-            h2.title Broken Access Control
-            p.subtitle URL Parameter Hacking Example
-            p
-              a.button.is-link.is-inverted.is-outlined(href="/broken-ac") Try out
 
         .column(style="min-width: 350px")
           .notification.is-success

@@ -7,7 +7,7 @@ mixin capitalize(string)
 block content
   section.section
     .container
-      h1.title.is-1 Sensitive Exposure Demo
+      h1.title.is-1 Cryptographic Failures Demo
       p.subtitle.is-1 Unsafe Password Hashes Demo
 
   section.section
@@ -37,7 +37,7 @@ block content
           .column(style="min-width: 350px")
             .notification
               h2.title
-                a(href=`/sensitive-exposure/${user.id}`)
+                a(href=`/cryptographic-failures/${user.id}`)
                   +capitalize(user.email.split('@')[0])
               p.subtitle
                 | Domain:

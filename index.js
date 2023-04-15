@@ -13,7 +13,7 @@ setupViews(app);
 
 const overview = require("./routes/overview");
 const brokenAuth = require("./routes/broken-auth");
-const sensitiveExp = require("./routes/sensitive-exposure");
+const sensitiveExp = require("./routes/cryptographic-failures");
 const brokenAc = require("./routes/broken-ac");
 const injection = require("./routes/injection");
 const unsafeXSS = require("./routes/unsafe-xss");
